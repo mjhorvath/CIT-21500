@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FinalProject</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<h1 id="empty">Store is empty.</h1>
+<div id="instruments-app">
+  <div class="instrument" v-bind:class="instrument.brand" v-for="instrument in instruments" v-on:click="myVue1.showDetails(instrument);">
+			<img class="picture" v-bind:src="instrument.image"/>
+      <h1>{{instrument.name}}</h1>
+			<button v-on:click.stop="myVue1.moveToCart(instrument);">Add to Cart</button>
+  </div>
+</div>
+<div id="screen" onclick="myVue1.hideScreen();">
+</div>
+<div id="details">
+	<img id="det_image"/>
+	<div>Name: <span id="det_name"></span></div>
+	<div>Type: <span id="det_type"></span></div>
+	<div>Price: <span id="det_price"></span></div>
+	<div>Brand: <span id="det_brand"></span></div>
+</div>
+<div id="form">
+    <img id="frm_image"/>
+		<div><input type="text" id="frm_name" placeholder="Item name" v-on:input="updateText();"/></div>
+		<div><input type="text" id="frm_type" placeholder="Item category" v-on:input="updateText();"/></div>
+		<div><select id="frm_brand"><option>Yahama</option><option>Fender</option><option>Maton</option></select></div>
+		<div><input type="text" id="frm_price" placeholder="Item price" v-on:input="updateText();"/></div>
+		<div><input type="text" id="frm_image" placeholder="Image URL" v-on:input="updateText();"/></div>
+		<button onclick="myVue1.addToStore();">Add to Store</button>
+</div>
+<div id="panel">
+	<div id="bubble" onclick="myVue1.moveFromCart();">Cart: <span id="cart">0</span></div>
+	<div id="new" onclick="myVue1.showForm();">New Item</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.8/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
